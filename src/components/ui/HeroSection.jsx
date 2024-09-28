@@ -8,7 +8,7 @@ function HeroSection() {
       {/* Hero Tag Line */}
       <div className=' mt-32'>
          <div
-          className=' text-6xl md:text-8xl'
+          className=' text-4xl md:text-8xl'
         >Find
           <span className='text-blue-500 font-bold'>Jobs</span> and
           <span className='text-blue-500 font-bold'>Internships</span><br />Easy And Fast</div> 
