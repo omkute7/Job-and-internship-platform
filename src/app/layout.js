@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import NavBar from "@/components/ui/NavBar";
 import { ThemeProvider } from "@/components/theme-provider";
+import MobileMenu from "@/components/Mobile-menu";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -33,6 +34,7 @@ export default function RootLayout({ children }) {
             disableTransitionOnChange
           >
             <NavBar/>
+            {/* <MobileMenu/> */}
             {children}
           </ThemeProvider>
       </body>
