@@ -20,6 +20,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { useState } from "react"
 import { IoClose } from "react-icons/io5";
+import { Button } from './button'
 
 
 
@@ -30,6 +31,7 @@ import { IoClose } from "react-icons/io5";
 
 function NavBar() {
     const [expanded, setExpanded] = useState(false)
+    const [loggedIn, setLoggedIn] = useState(true)
 
     return (
         <>
@@ -74,13 +76,13 @@ function NavBar() {
                             className=' hidden md:block lg:block rounded-xl h-9 w-max cursor-pointer items-center justify-center  bg-background  p-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50'
                         />
                         <IoClose
-                            className={`${expanded ? ' ease-in block':'hidden'} md:hidden lg:hidden rounded-xl h-14 text-red-500 w-max cursor-pointer items-center justify-center  bg-background  p-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50`}
-                            onClick={()=> setExpanded(false)}
-                         />
+                            className={`${expanded ? ' ease-in block' : 'hidden'} md:hidden lg:hidden rounded-xl h-12 text-red-500 w-max cursor-pointer items-center justify-center  bg-background  p-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50`}
+                            onClick={() => setExpanded(false)}
+                        />
 
                         <HiOutlineMenuAlt3
-                            className={` ${expanded ? 'hidden':'block'} md:hidden lg:hidden rounded-xl h-12 w-max cursor-pointer items-center justify-center  bg-background  p-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50`}
-                            onClick={()=> setExpanded(true)}
+                            className={` ${expanded ? 'hidden' : 'block'} md:hidden lg:hidden rounded-xl h-12 w-max cursor-pointer items-center justify-center  bg-background  p-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50`}
+                            onClick={() => setExpanded(true)}
                         />
 
                         <div>
@@ -95,23 +97,50 @@ function NavBar() {
                 </div>
             </section>
             <section className={` flex  z-30 ${expanded ? 'block ease-in ' : 'hidden'}`} >
-                <div className=' bg-slate-200 h-[100%] absolute  right-0  w-[50vw] px-5 flex flex-col justify-between'>
+                <div className=' bg-white h-[100%] absolute  right-0  w-[50vw] px-5 flex flex-col justify-between'>
                     <div className="flex flex-col space-y-3   ">
-                        <Link href="/">
-                            Documentation
+                        {/* login button */}
+                        <Button className={`${loggedIn ? 'hidden' : 'block'}`} >Login/SignUp</Button>
+                        {/* avatar if loggedIn */}
+                        <Avatar className="">
+                            <AvatarImage src="https://github.com/shadcn.png" />
+                            <AvatarFallback>CN</AvatarFallback>
+                        </Avatar>
+                        {/* Add user name here */}
+                        <p className=' font-bold '>Hi, Sumit</p>
+                        <hr />
+                        {/* Links */}
+                        <Link href="/job-listing">
+                            <Button className=" bg-white hover:bg-gray-100  text-black shadow-md w-full">Job Listing</Button>
 
                         </Link>
-                        <Link href="/">
-                            About
+                        <Link href="/interview-prepration">
+                        <Button className=" bg-white hover:bg-gray-100  text-black shadow-md w-full">Interview Prepration</Button>
+
 
                         </Link>
-                        <Link href="/">
-                            Support
+                        <Link href="/roadmap">
+                        <Button className=" bg-white hover:bg-gray-100  text-black shadow-md w-full">Roadmap</Button>
 
+
+                        </Link>
+                        <Link href="/guidence" >
+                        <Button className=" bg-white hover:bg-gray-100  text-black shadow-md w-full">Guidence</Button>
+
+                        </Link>
+                        <Link href="/resume">
+                        <Button className=" bg-white hover:bg-gray-100  text-black shadow-md w-full">Resume</Button>
+                        </Link>
+                        <Link href="/Prepare">
+                        <Button className=" bg-white hover:bg-gray-100  text-black shadow-md w-full">Prepare</Button>
+
+                        </Link>
+                        <Link href="/thread">
+                        <Button className=" bg-white hover:bg-gray-100  text-black shadow-md w-full">Thread</Button>
                         </Link>
                     </div>
                     <div>
-                    <Link href="/">
+                        <Link href="/">
                             Support
 
                         </Link>
