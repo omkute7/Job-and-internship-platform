@@ -96,9 +96,9 @@ function NavBar() {
                     </div>
                 </div>
             </section>
-            <section className={` flex  z-30 ${expanded ? 'block ease-in ' : 'hidden'}`} >
-                <div className=' bg-white h-[100%] absolute  right-0  w-[50vw] px-5 flex flex-col justify-between'>
-                    <div className="flex flex-col space-y-3   ">
+            <section className={`  flex  z-30 ${expanded ? 'block ease-in ' : 'hidden'}`} >
+                <div className=' bg-gray-100 rounded-sm h-[100%] absolute  right-0  w-[50vw] p-3 px-5 flex flex-col justify-between'>
+                    <div className="flex flex-col space-y-3    ">
                         {/* login button */}
                         <Button className={`${loggedIn ? 'hidden' : 'block'}`} >Login/SignUp</Button>
                         {/* avatar if loggedIn */}
@@ -110,6 +110,10 @@ function NavBar() {
                         <p className=' font-bold '>Hi, Sumit</p>
                         <hr />
                         {/* Links */}
+                        <Link href="/">
+                            <Button className=" bg-white hover:bg-gray-100  text-black shadow-md w-full">Home</Button>
+
+                        </Link>
                         <Link href="/job-listing">
                             <Button className=" bg-white hover:bg-gray-100  text-black shadow-md w-full">Job Listing</Button>
 
