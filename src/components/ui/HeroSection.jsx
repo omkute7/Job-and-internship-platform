@@ -18,8 +18,9 @@ function HeroSection() {
         <p>Internsip Oppurtunities for College Students</p>
       </div >
       {/* Input Box for searchin Jobs [chadCn element] */}
-      <div className=' md:flex w-[60vh] mt-10  space-x-7 '>
+      <div className=' md:flex  mt-10  space-x-7 '>
         <div className="flex w-full max-w-sm items-center space-x-2">
+        
           <Input className=" focus-visible:bg-none" type="text" placeholder="Search Job Here" />
           <Button type="submit">Search</Button>
         </div>
