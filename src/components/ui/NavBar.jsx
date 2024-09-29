@@ -96,7 +96,10 @@ function NavBar() {
                             className={`${expanded ? ' ease-in block' : 'hidden'} md:hidden lg:hidden rounded-xl h-12 text-red-500 w-max cursor-pointer items-center justify-center  bg-background  p-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50`}
                             onClick={() => setExpanded(false)}
                         />
-                        <ModeToggle />
+                        <div className=" hidden md:block">
+
+                        <ModeToggle  />
+                        </div>
 
                         <HiOutlineMenuAlt3
                             className={` ${expanded ? 'hidden' : 'block'} md:hidden lg:hidden rounded-xl h-12 w-max cursor-pointer items-center justify-center  bg-background  p-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50`}
@@ -152,7 +155,7 @@ function NavBar() {
                                 />
 
                             </Link>
-                            <div className=' hover:bg-gray-200 dark:hover:bg-black p-2 py-3 flex justify-between items-center rounded-sm'>
+                            <div className=' hidden md:block hover:bg-gray-200 dark:hover:bg-black p-2 py-3 flex justify-between  items-center rounded-sm'>
                                 <p >Theme</p>
                                 <ModeToggle  />
 
