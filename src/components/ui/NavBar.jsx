@@ -155,7 +155,7 @@ function NavBar() {
                                 />
 
                             </Link>
-                            <div className=' hidden md:block hover:bg-gray-200 dark:hover:bg-black p-2 py-3 flex justify-between  items-center rounded-sm'>
+                            <div className='  md:block hover:bg-gray-200 dark:hover:bg-black p-2 py-3 flex justify-between  items-center rounded-sm'>
                                 <p >Theme</p>
                                 <ModeToggle  />
 
