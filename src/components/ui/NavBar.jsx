@@ -69,19 +69,19 @@ function NavBar() {
                         <div className=' hidden lg:block md:block'>
                             <NavigationMenu>
                                 <NavigationMenuList>
-                                    <Link href="/">
+                                    <Link href="/jobs">
                                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                                            Documentation
+                                            Jobs
                                         </NavigationMenuLink>
                                     </Link>
-                                    <Link href="/">
+                                    <Link href="/prepare">
                                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                                            About
+                                            Prepare
                                         </NavigationMenuLink>
                                     </Link>
-                                    <Link href="/">
+                                    <Link href="/thread">
                                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                                            Support
+                                            Thread
                                         </NavigationMenuLink>
                                     </Link>
                                 </NavigationMenuList>

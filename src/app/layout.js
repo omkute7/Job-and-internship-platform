@@ -3,6 +3,7 @@ import "./globals.css";
 import NavBar from "@/components/ui/NavBar";
 import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "@/components/ui/Footer.jsx";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -33,6 +34,7 @@ export default function RootLayout({ children }) {
             enableSystem
             disableTransitionOnChange
           >
+          <SpeedInsights/>
             <NavBar/>
             {/* <MobileMenu/> */}
             {children}
