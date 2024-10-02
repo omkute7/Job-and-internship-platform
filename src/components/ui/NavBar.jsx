@@ -14,14 +14,9 @@ import {
     NavigationMenuTrigger,
     NavigationMenuViewport,
 } from "@/components/ui/navigation-menu"
-import {
-    ClerkProvider,
-    SignInButton,
-    SignedIn,
-    SignedOut,
-    UserButton
-  } from '@clerk/nextjs'
-  
+
+import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
+
 import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
 import { SlBell } from "react-icons/sl";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -34,6 +29,7 @@ import { IoIosLogOut } from "react-icons/io";
 import { MdSpaceDashboard, MdSupport } from "react-icons/md";
 import { IoMdSettings } from "react-icons/io";
 import { BiSupport } from "react-icons/bi";
+import ClerkLogin from '../ClerkLogin'
 
 
 
@@ -58,7 +54,7 @@ function NavBar() {
     return (
         <div>
             <section>
-                <div className='w-full p-2 md:mt-5 md:px-7 flex items-center justify-between'>
+                <div className=' w-full p-2 md:mt-5 md:px-7 flex items-center justify-between'>
                     {/* Logo */}
                     <div>
                         {/* <Image
@@ -106,7 +102,7 @@ function NavBar() {
                         />
                         <div className=" hidden md:block">
 
-                        <ModeToggle  />
+                            <ModeToggle />
                         </div>
 
                         <HiOutlineMenuAlt3
@@ -118,14 +114,11 @@ function NavBar() {
 
                         </div>
                         {/* Profile / AccountIcon */}
-                        <ClerkProvider>
-                            <SignedOut>
-                              <SignInButton />
-                            </SignedOut>
-                            <SignedIn>
-                             <UserButton />
-                            </SignedIn>
-                        </ClerkProvider>
+
+                        <div className=' hidden cursor-pointer md:block bg-green-800 hover:bg-green-600 px-3 py-2 rounded-xl '>
+
+                            <ClerkLogin className=" " />
+                        </div>
 
 
 
@@ -133,84 +126,71 @@ function NavBar() {
                 </div>
             </section>
             {/* Mobile menu */}
-            <section className={`  flex  z-30 ${expanded ? 'block ease-in ' : 'hidden'}`} >
-                <div className=' bg-gray-100  dark:bg-slate-900 rounded-sm h-screen absolute  right-0  w-full p-3 px-5 flex flex-col justify-between'>
-                    <div className=" space-y-2  px-6   ">
-                        {/* login button */}
-                        <Button className={`${loggedIn ? 'hidden' : 'block'}`} >Login/SignUp</Button>
-                        {/* avatar if loggedIn */}
-                        <div className={`${loggedIn ? 'block' : 'hidden'} flex items-center space-x-4 px-3`} >
+            <section className={` mr-0   flex  w-full z-30 ${expanded ? 'block' : 'hidden'}`} >
+                <div className=' bg-gray-100  dark:bg-slate-900 rounded-sm h-screen absolute  right-0  w-full p-3 px-5 flex flex-col justify-betwee'>
+                            <div className=' cursor-pointer flex justify-center items-center bg-green-800 hover:bg-green-600 px-3 py-2 rounded-xl ' >
 
+                              <ClerkLogin  className="w-full" />
+                            </div>
+                    <hr />
+                    {/* Links */}
+                    <div className=' flex flex-col space-y-4 text-lg'>
 
+                        <Link onClick={() => setExpanded(false)} href="/" className=' hover:bg-gray-200 dark:hover:bg-black px-2 py-3 rounded-sm flex justify-between items-center'>
+                            <p >Dashboard</p>
+                            <MdSpaceDashboard
+                                className='rounded-md h-10 w-max cursor-pointer items-center justify-center  bg-background  p-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50'
 
-                            <Avatar className={``}>
-                                <AvatarImage src="https://github.com/shadcn.png" />
-                                <AvatarFallback>CN</AvatarFallback>
-                            </Avatar>
-                            {/* Add user name here */}
-                            <p className=' font-bold  text-lg'>Hi, Sumit</p>
+                            />
+                        </Link>
+                        <Link href="/account" onClick={() => setExpanded(false)} className='  hover:bg-gray-200 dark:hover:bg-black px-2 py-3 rounded-sm flex justify-between items-center' >
+                            <p >Account Setting</p>
+                            <IoMdSettings
+                                className='rounded-md h-10 w-max cursor-pointer items-center justify-center  bg-background  p-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50'
+
+                            />
+
+                        </Link>
+                        <div className='  md:block hover:bg-gray-200 dark:hover:bg-black p-2 py-3 flex justify-between  items-center rounded-sm'>
+                            <p >Theme</p>
+                            <ModeToggle />
+
                         </div>
+                        <div onClick={() => { HandleLogout(); setExpanded(false); }} className=' hover:bg-gray-200 dark:hover:bg-black px-2 py-3 flex justify-between items-center rounded-sm' >
+                            <p >Logout</p>
+                            <IoIosLogOut
+                                className='rounded-md h-10 w-max cursor-pointer items-center justify-center  bg-background  p-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50'
+                            />
+                        </div>
+
                         <hr />
-                        {/* Links */}
-                        <div className=' flex flex-col space-y-4 text-lg'>
+                        {/* Quick Links */}
+                        <Link onClick={() => setExpanded(false)} href="/guidence"  >
+                            <p>Guidence</p>
 
-                            <Link onClick={()=> setExpanded(false)}  href="/" className=' hover:bg-gray-200 dark:hover:bg-black px-2 py-3 rounded-sm flex justify-between items-center'>
-                                <p >Dashboard</p>
-                                <MdSpaceDashboard
-                                        className='rounded-md h-10 w-max cursor-pointer items-center justify-center  bg-background  p-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50'
+                        </Link>
+                        <Link onClick={() => setExpanded(false)} href="/resume">
+                            <p >Resume</p>
+                        </Link>
+                        <Link onClick={() => setExpanded(false)} href="/prepare">
+                            <p >Prepare</p>
 
-                                />
-                            </Link>
-                            <Link href="/account" onClick={()=> setExpanded(false)} className='  hover:bg-gray-200 dark:hover:bg-black px-2 py-3 rounded-sm flex justify-between items-center' >
-                                <p >Account Setting</p>
-                                <IoMdSettings 
-                                    className='rounded-md h-10 w-max cursor-pointer items-center justify-center  bg-background  p-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50'
+                        </Link>
+                        <Link onClick={() => setExpanded(false)} href="/thread">
+                            <p >Thread</p>
+                        </Link>
+                        <hr />
+                        <Link onClick={() => setExpanded(false)} href="/support" className='w-[100vw]'>
+                            <Button>
+                                Support
+                                <BiSupport /></Button>
+                        </Link>
 
-                                />
-
-                            </Link>
-                            <div className='  md:block hover:bg-gray-200 dark:hover:bg-black p-2 py-3 flex justify-between  items-center rounded-sm'>
-                                <p >Theme</p>
-                                <ModeToggle  />
-
-                            </div>
-                            <div onClick={()=>{HandleLogout(); setExpanded(false);}}  className=' hover:bg-gray-200 dark:hover:bg-black px-2 py-3 flex justify-between items-center rounded-sm' >
-                                <p >Logout</p>
-                                <IoIosLogOut
-                                    className='rounded-md h-10 w-max cursor-pointer items-center justify-center  bg-background  p-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50'
-                                />
-                            </div>
-
-                            <hr />
-                            {/* Quick Links */}
-                            <Link onClick={()=> setExpanded(false)} href="/guidence"  >
-                                <p>Guidence</p>
-
-                            </Link>
-                            <Link onClick={()=> setExpanded(false)} href="/resume">
-                                <p >Resume</p>
-                            </Link>
-                            <Link onClick={()=> setExpanded(false)} href="/prepare">
-                                <p >Prepare</p>
-
-                            </Link>
-                            <Link onClick={()=> setExpanded(false)} href="/thread">
-                                <p >Thread</p>
-                            </Link>
-                            <hr />
-                            <Link onClick={()=> setExpanded(false)} href="/support" className='w-[100vw]'>
-                            <Button> 
-                            Support
-                           <BiSupport /></Button>
-                            </Link>
-                            
-                        </div>
                     </div>
 
                 </div>
-            </section>
+            </section >
         </div>
-
     )
 }
 

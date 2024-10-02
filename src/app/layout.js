@@ -49,8 +49,10 @@ export default function RootLayout({ children }) {
     //       </ThemeProvider>
     //   </body>
     // </html>
+      <ClerkProvider>
     <html lang="en">
       <body>
+
       <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -60,8 +62,11 @@ export default function RootLayout({ children }) {
         <SpeedInsights/>
              <NavBar/>
         {children}
+        <Footer/>
         </ThemeProvider>
       </body>
     </html>
+    </ClerkProvider>
+
   );
 }

@@ -3,7 +3,7 @@ import React from 'react'
 
 function JobListing() {
   return (
-    <div className=' h- flex md:flex-row justify-cente '>
+    <div className=' flex flex-col '>
     <JobCard/>
     <JobCard/>
     <JobCard/>

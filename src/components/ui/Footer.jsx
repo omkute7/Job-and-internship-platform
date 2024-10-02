@@ -51,6 +51,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="mt-8 text-center">
+          <hr className=' text-white h-8' />
           <p>&copy; 2024 CarrierConnect. All rights reserved.</p>
         </div>
       </div>
