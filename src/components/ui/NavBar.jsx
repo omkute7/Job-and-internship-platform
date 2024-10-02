@@ -14,6 +14,14 @@ import {
     NavigationMenuTrigger,
     NavigationMenuViewport,
 } from "@/components/ui/navigation-menu"
+import {
+    ClerkProvider,
+    SignInButton,
+    SignedIn,
+    SignedOut,
+    UserButton
+  } from '@clerk/nextjs'
+  
 import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
 import { SlBell } from "react-icons/sl";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -110,10 +118,16 @@ function NavBar() {
 
                         </div>
                         {/* Profile / AccountIcon */}
-                        <Avatar className="hidden md:block">
-                            <AvatarImage src="https://github.com/shadcn.png" />
-                            <AvatarFallback>CN</AvatarFallback>
-                        </Avatar>
+                        <ClerkProvider>
+                            <SignedOut>
+                              <SignInButton />
+                            </SignedOut>
+                            <SignedIn>
+                             <UserButton />
+                            </SignedIn>
+                        </ClerkProvider>
+
+
 
                     </div>
                 </div>

@@ -4,6 +4,13 @@ import NavBar from "@/components/ui/NavBar";
 import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "@/components/ui/Footer.jsx";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import {
+  ClerkProvider,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton
+} from '@clerk/nextjs'
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -23,23 +30,37 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    // <html lang="en">
+    //   <body
+    //     className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+    //   >
       
+    //   <ThemeProvider
+    //         attribute="class"
+    //         defaultTheme="system"
+    //         enableSystem
+    //         disableTransitionOnChange
+    //       >
+    //       <SpeedInsights/>
+    //         <NavBar/>
+    //         {/* <MobileMenu/> */}
+    //         {children}
+    //         <Footer/>
+    //       </ThemeProvider>
+    //   </body>
+    // </html>
+    <html lang="en">
+      <body>
       <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
           >
-          <SpeedInsights/>
-            <NavBar/>
-            {/* <MobileMenu/> */}
-            {children}
-            <Footer/>
-          </ThemeProvider>
+        <SpeedInsights/>
+             <NavBar/>
+        {children}
+        </ThemeProvider>
       </body>
     </html>
   );
