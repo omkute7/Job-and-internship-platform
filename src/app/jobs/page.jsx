@@ -3,14 +3,14 @@ import React from 'react'
 
 function JobListing() {
   return (
-    <div className=' flex flex-col '>
+    <section className=' w-full  '>
+    <div className=' flex flex-wrap justify-center '>
     <JobCard/>
-    <JobCard/>
-    <JobCard/>
-    <JobCard/>
-    <JobCard/>
-    <JobCard/>
+    {/* <JobCard/> */}
+
     </div>
+    
+    </section>
   )
 }
 
