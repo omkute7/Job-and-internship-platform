@@ -1,31 +1,70 @@
+"use client";
+
 import React from 'react'
 import { Input } from './input'
 import { Button } from './button'
+import { BackgroundLines } from './background-lines'
+import { PlaceholdersAndVanishInput } from "../ui/placeholders-and-vanish-input";
+import { HeroHighlight, Highlight } from "../ui/hero-highlight";
+import { motion } from "framer-motion";
+
+
+
+
+const placeholders = [
+  "Software Developer",
+  "Data Anyalist",
+  "Android Developer",
+  "Network Engineer",
+  "Project Manager",
+];
 
 function HeroSection() {
+
+  const handleChange = (e) => {
+    console.log(e.target.value);
+  };
+  const onSubmit = (e) => {
+    e.preventDefault();
+    console.log("submitted");
+  };
+
   return (
-    <div className='w-full  flex flex-col  '>
-      {/* Hero Tag Line */}
-      <div className=' mt-32'>
-         <div
-          className=' text-4xl md:text-8xl'
-        >Find
-          <span className='text-blue-500 font-bold'>Jobs</span> and
-          <span className='text-blue-500 font-bold'>Internships</span><br />Easy And Fast</div> 
-      </div>
-      {/* Hero tagline description 1 line */}
-      <div className=' md:px-2'>
-        <p>Internsip Oppurtunities for College Students</p>
-      </div >
-      {/* Input Box for searchin Jobs [chadCn element] */}
-      <div className=' md:flex  mt-10  space-x-7 '>
-        <div className="flex w-full max-w-sm items-center space-x-2">
+    <div className='w-full '>
+      <HeroHighlight className=" w-[70vw]">
+      <motion.h1
+        initial={{
+          opacity: 0,
+          y: 20,
+        }}
+        animate={{
+          opacity: 1,
+          y: [20, -5, 0],
+        }}
+        transition={{
+          duration: 0.5,
+          ease: [0.4, 0.0, 0.2, 1],
+        }}
+        className="  text-4xl px-4 md:text-5xl lg:text-6xl font-bold text-neutral-700 dark:text-white max-w-4xl leading-relaxed lg:leading-snug text-center mx-auto "
+      >
+        Find{" "}
+         Job
+        and{" "}
+        Internships
+        <br />
+        Easy And Fast
         
-          <Input className=" focus-visible:bg-none" type="text" placeholder="Search Job Here" />
-          <Button type="submit">Search</Button>
-        </div>
-        {/* <Button className="m-3 " >Find Jobs</Button> */}
-      </div>
+
+      </motion.h1>
+     <div className='mt-8'>
+     <PlaceholdersAndVanishInput
+        placeholders={placeholders}
+        onChange={handleChange}
+        onSubmit={onSubmit}
+        className="mt-5"
+      />
+     </div>
+    </HeroHighlight>
 
 
     </div>

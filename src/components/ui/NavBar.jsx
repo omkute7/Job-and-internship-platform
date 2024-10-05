@@ -29,7 +29,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { useState } from "react"
 import { IoClose } from "react-icons/io5";
-import { Button } from './button'
+import { Button } from '../ui/button'
 import { ModeToggle } from './toggle'
 import { IoIosLogOut } from "react-icons/io";
 import { MdSpaceDashboard, MdSupport } from "react-icons/md";
@@ -109,13 +109,14 @@ return (
             <div className=' w-full p-2 md:mt-5 md:px-7 flex items-center justify-between'>
                 {/* Logo */}
                 <div>
-                    {/* <Image
-                        src={Logo}
+                    <Link href="/" className='flex items-center space-x-1'>
+                     <Image
+                        src="/clogo.png"
                         alt="Logo"
-                        width={60}
+                        width={65}
+                        height={60}
 
-                    /> */}
-                    <Link href="/">
+                    /> 
 
                         <h1 className=' text-2xl md:text-3xl font-bold'>Carrier Connect</h1>
                     </Link>
@@ -189,11 +190,12 @@ return (
                     </div>
                     {/* Profile / AccountIcon */}
 
-                    <div className=' hidden cursor-pointer md:block bg-green-800 hover:bg-green-600 px-3 py-2 rounded-xl '>
-
+                    
+                    <Button>
                         <ClerkLogin className=" " />
-                    </div>
 
+                    </Button>
+                    
 
 
                 </div>
@@ -259,9 +261,7 @@ return (
                             Support
                             <BiSupport /></Button>
                     </Link>
-
                 </div>
-
             </div>
         </section >
     </div>

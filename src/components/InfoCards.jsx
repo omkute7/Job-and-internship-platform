@@ -7,7 +7,7 @@ import React from 'react'
 function InfoCards({FlexReverse}) {
   return (
     <section className={`w-full mt-14 md:flex justify-center ${FlexReverse} space-y-2 md:space-x-3 p-2 rounded-xl `}>
-      <div className='flex flex-col md:max-w-[40vw] md:justify-center space-y-2'>
+      <div className='flex flex-col md:max-w-[40vw] md:justify-even space-y-2'>
 
         <div className=' p-5 border-[0.5px] rounded-2xl  dark:bg-[#202124] dark:text-white  bg-slate-50 text-black '>
           <h3 className=' font-bold text-xl'>Get Compressive
