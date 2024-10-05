@@ -149,7 +149,7 @@ return (
                     {/* Notification icon */}
                     <div>
                         <SlBell
-                            className= {`  md:block lg:block rounded-xl h-9 w-max cursor-pointer items-center justify-center  bg-background  p-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50`}
+                            className= {` hidden  lg:block rounded-xl h-9 w-max cursor-pointer items-center justify-center  bg-background  p-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50`}
                             onClick={()=>{Notification()}}
                         />
                         <div className={`${ notification ? "" : "md:hidden"} hidden md:block absolute p-2 right-20  mt-4 rounded-3xl max-w-[40%] border bg-black  `}>

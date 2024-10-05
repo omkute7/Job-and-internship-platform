@@ -4,7 +4,7 @@ import { Button } from './button'
 
 function HeroSection() {
   return (
-    <div className='w-full h-screen flex flex-col  '>
+    <div className='w-full  flex flex-col  '>
       {/* Hero Tag Line */}
       <div className=' mt-32'>
          <div
