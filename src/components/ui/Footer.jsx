@@ -1,10 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaGithub } from 'react-icons/fa';
+import { Button } from './button';
 
 const Footer = () => {
   return (
-    <footer className="bg-black border-t-2 text-white py-8">
+    <footer className="bg-black border-t-2 text-white py-8 bottom-0  w-full">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
@@ -33,21 +34,12 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h3 className="text-lg font-semibold mb-4">Connect With Us</h3>
-            <div className="flex space-x-4">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
-                <FaFacebookF size={24} />
-              </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
-                <FaTwitter size={24} />
-              </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
-                <FaLinkedinIn size={24} />
-              </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
-                <FaInstagram size={24} />
-              </a>
-            </div>
+           <Button>
+           <Link href='https://github.com/omkute7/Job-and-internship-platform' target='blank' >
+            <p>Github</p>
+            <FaGithub/>
+           </Link>
+           </Button>
           </div>
         </div>
         <div className="mt-8 text-center">
