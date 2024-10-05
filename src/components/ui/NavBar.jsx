@@ -21,7 +21,7 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
-import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
+import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton, useAuth } from '@clerk/nextjs'
 
 import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
 import { SlBell } from "react-icons/sl";
@@ -80,6 +80,8 @@ const Data = [
     const [expanded, setExpanded] = useState(false);
     const [loggedIn, setLoggedIn] = useState(true);
     const [notification, setNotification] = useState(false);
+    const {isSignedIn} = useAuth();
+
 
 
     function HandleLogout() {
@@ -104,7 +106,7 @@ const Data = [
 
 
 return (
-    <div>
+    <div >
         <section>
             <div className=' w-full p-2 md:mt-5 md:px-7 flex items-center justify-between'>
                 {/* Logo */}
@@ -190,11 +192,10 @@ return (
                     </div>
                     {/* Profile / AccountIcon */}
 
+                    {isSignedIn ? <div  className=" hidden md:block" ><ClerkLogin  /></div>  : <Button className=" hidden md:block">
+                        <ClerkLogin />
+                        </Button>}
                     
-                    <Button>
-                        <ClerkLogin className=" " />
-
-                    </Button>
                     
 
 
@@ -202,9 +203,9 @@ return (
             </div>
         </section>
         {/* Mobile menu */}
-        <section className={` mr-0   flex  w-full z-30 ${expanded ? 'block' : 'hidden'}`} >
-            <div className=' bg-gray-100  dark:bg-slate-900 rounded-sm h-screen absolute  right-0  w-full p-3 px-5 flex flex-col justify-betwee'>
-                <div className=' cursor-pointer flex justify-center items-center bg-green-800 hover:bg-green-600 px-3 py-2 rounded-xl ' >
+        <section className={`  mr-0   flex  w-full z-30 ${expanded ? 'block overflow-y-hidden' : 'hidden'}`} >
+            <div className='   bg-gray-100  dark:bg-slate-900 rounded-sm h-screen absolute z-50  right-0  w-full p-3 px-5 flex flex-col justify-betwee'>
+                <div className='  cursor-pointer flex justify-center items-center bg-green-800 hover:bg-green-600 px-3 py-2 rounded-xl ' >
 
                     <ClerkLogin className="w-full" />
                 </div>
