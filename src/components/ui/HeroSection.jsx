@@ -30,8 +30,9 @@ function HeroSection() {
   };
 
   return (
-    <div className='w-full '>
-      <HeroHighlight className=" w-[70vw]">
+    <div className=' z-0 h-[50rem] w-full dark:bg-black bg-white  dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex items-center justify-center'>
+    <div className=' w-full '>
+      <HeroHighlight className=" w-[90vw] md:w-[70vw] bg-transparent">
       <motion.h1
         initial={{
           opacity: 0,
@@ -45,7 +46,7 @@ function HeroSection() {
           duration: 0.5,
           ease: [0.4, 0.0, 0.2, 1],
         }}
-        className="  text-3xl px-4 md:text-5xl lg:text-6xl font-bold text-neutral-700 dark:text-white max-w-4xl leading-relaxed lg:leading-snug text-center mx-auto "
+        className="  text-3xl px-1 md:text-5xl lg:text-6xl font-bold text-neutral-700 dark:text-white max-w-4xl leading-relaxed lg:leading-snug text-center mx-auto "
       >
         Find{" "}
          Job
@@ -56,17 +57,17 @@ function HeroSection() {
         
 
       </motion.h1>
-     <div className='mt-8'>
+     <div className='mt-8 p-2 bg-gray-300 dark:bg-neutral-700 rounded-xl'>
      <PlaceholdersAndVanishInput
         placeholders={placeholders}
         onChange={handleChange}
         onSubmit={onSubmit}
-        className="mt-5"
+        className="mt-5 "
       />
      </div>
     </HeroHighlight>
 
-
+    </div>
     </div>
   )
 }

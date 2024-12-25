@@ -60,7 +60,7 @@ export default function RootLayout({ children }) {
             disableTransitionOnChange
           >
         <SpeedInsights/>
-             <NavBar/>
+             <NavBar />
         {children}
         <Footer/>
         </ThemeProvider>

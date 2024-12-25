@@ -31,7 +31,7 @@ const Data = [
     JobTitle: "Software Engineer1",
     JobLocation: "Bangalore, Karnataka",
     JobTags: ["Software Development", "JavaScript", "React"],
-    JobDescription: "Develop and maintain web applications using JavasdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddaScript and React.",
+    JobDescription: "Develop and maintain web applications using JavasaScript and React.",
     Date: "2024-10-01",
     Submissions: 120
   }, {
@@ -39,7 +39,7 @@ const Data = [
     JobTitle: "Software Engineer2",
     JobLocation: "Bangalore, Karnataka",
     JobTags: ["Software Development", "JavaScript", "React"],
-    JobDescription: "Develop and maintain web applications using JaasfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffvaScript and React.",
+    JobDescription: "Develop and maintain web applications using JaasfvaScript and React.",
     Date: "2024-10-01",
     Submissions: 120
   }, {
@@ -90,51 +90,85 @@ const Data = [
 ];
 
 export default function JobCard() {
-
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  useEffect(() => {
-    if (isExpanded) {
-      document.body.classList.add('overscroll-none');
-    } else {
-      document.body.classList.remove('overscroll-none');
-    }
-  }, [isExpanded]);
-
-  const LimitText = (text, limit) =>{
-    const words= text.split(' ');
-    if(words.length > limit){
-      return words.slice(0, limit).join(' ') + '...';
-    }
-    return text
-  }
-
-
-  return (
-    <>
-      {Data.map((job, index) => (
-        <div key={index} className="rounded-lg border bg-card text-card-foreground shadow-sm w-full md:w-auto min-h-[2px] lg:max-w-[40vh] m-4 hover:shadow-2xl hover:shadow-sky-400 hover: cursor-pointer transition duration-800 ease-in-out transform hover:scale-110">
-              <Link href={`/jobs/${(job.id)}`} >
-          <Card className="border-none overflow-hidden">
-            <CardHeader>
-              <CardTitle>{job.JobTitle}</CardTitle>
-              <CardDescription>{job.JobLocation}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p>{job.JobTags}</p>
-              <CardDescription>{LimitText(job.JobDescription,12 )}</CardDescription>
-            </CardContent>
-            <CardFooter className="flex justify-between">
-              <p className="text-sm">Posted On: {job.Date}</p>
-              <p className="text-sm">Submissions: {job.Submissions}</p>
-
-            </CardFooter>
-          </Card>
-              </Link>
+  return(
+    <div className=' p-2 m-2 border-2 border-foreground rounded-2xl bg-gray-1000'>
+      {/* Top Div */}
+      <div className=' bg-red-400 text-black rounded-2xl p-2 '>
+        <div className=' flex justify-between p-1'>
+          <p className=' bg-white p-1 rounded-2xl shadow-xl'>05 Jan, 2024</p>
+          <p className=' bg-white p-1 rounded-2xl shadow-xl cursor-pointer'>Save</p>
         </div>
-      ))}
-      {/* Expand Job */}
-      
-    </>
-  );
+        <div className=' my-5'>
+        <p className=' font-bold text-lg'>Zomato</p>
+        <h2 className=' text-4xl'> MERN Stack Engineer</h2>
+        </div>
+        <div className=' flex space-x- flex-wrap items '>
+          <p className='  rounded-2xl px-2 mx-1 my-2 border-2 border-black '>Fresher</p>
+          <p className='  rounded-2xl px-2 mx-1 my-2 border-2 border-black '>Fresher</p>
+          <p className='  rounded-2xl px-2 mx-1 my-2 border-2 border-black '>Fresher</p>
+          <p className='  rounded-2xl px-2 mx-1 my-2 border-2 border-black '>Fresher</p>
+          <p className='  rounded-2xl px-2 mx-1 my-2 border-2 border-black '>Fresher</p>
+          <p className='  rounded-2xl px-2 mx-1 my-2 border-2 border-black '>Fresher</p>
+        </div>
+      </div>
+      {/* Bottom Div */}
+      <div className=' flex justify-between items-center mt-5 px-2'>
+        <div>
+          <p>2.5-5 LPA</p>
+          <p>Pune Maharashtra,IND</p>
+        </div>
+        <div>
+          <Button className=" rounded-2xl">Details</Button>
+        </div>
+      </div>
+
+    </div>
+  )
 }
+
+  // const [isExpanded, setIsExpanded] = useState(false);
+
+  // useEffect(() => {
+  //   if (isExpanded) {
+  //     document.body.classList.add('overscroll-none');
+  //   } else {
+  //     document.body.classList.remove('overscroll-none');
+  //   }
+  // }, [isExpanded]);
+
+  // const LimitText = (text, limit) =>{
+  //   const words= text.split(' ');
+  //   if(words.length > limit){
+  //     return words.slice(0, limit).join(' ') + '...';
+  //   }
+  //   return text
+  // }
+
+
+  // return (
+  //   <>
+  //     {Data.map((job, index) => (
+  //       <div key={index} className="rounded-lg border bg-card text-card-foreground shadow-sm w-full md:w-auto min-h-[2px] lg:max-w-[40vh] m-4 hover:shadow-2xl hover:shadow-sky-400 hover: cursor-pointer transition duration-800 ease-in-out transform hover:scale-110">
+  //             <Link href={`/jobs/${(job.id)}`} >
+  //         <Card className="border-none overflow-hidden">
+  //           <CardHeader>
+  //             <CardTitle>{job.JobTitle}</CardTitle>
+  //             <CardDescription>{job.JobLocation}</CardDescription>
+  //           </CardHeader>
+  //           <CardContent>
+  //             <p>{job.JobTags}</p>
+  //             <CardDescription>{LimitText(job.JobDescription,12 )}</CardDescription>
+  //           </CardContent>
+  //           <CardFooter className="flex justify-between">
+  //             <p className="text-sm">Posted On: {job.Date}</p>
+  //             <p className="text-sm">Submissions: {job.Submissions}</p>
+
+  //           </CardFooter>
+  //         </Card>
+  //             </Link>
+  //       </div>
+  //     ))}
+  //     {/* Expand Job */}
+      
+  //   </>
+  // );

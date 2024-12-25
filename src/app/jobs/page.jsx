@@ -6,9 +6,19 @@ function JobListing() {
   return (
     
 
-    <section className=' w-full  '>
-    <div className=' flex flex-wrap justify-center '>
-    <JobCard  />
+    <section className=' w-full  h-screen  '>
+    <div className=' flex flex-wrap justify-center   '>
+    <div className=' h-[10vh]'>
+      
+    </div>
+    <div className=' flex justify-evenly   space-x-6 md:w-[80vw] lg:w-[80vw]'>
+      <JobCard/>
+      <JobCard/>
+      <JobCard/>
+    </div>
+    <div>
+      
+    </div>
 
     </div>
     

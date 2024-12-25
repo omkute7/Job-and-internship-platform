@@ -2,7 +2,7 @@ import React from 'react'
 
 function ResumeBuilder() {
   return (
-    <div>ResumeBuilder</div>
+    <div className=' h-screen flex items-center justify-center'>ResumeBuilder</div>
   )
 }
 

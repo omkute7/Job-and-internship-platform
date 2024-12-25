@@ -17,6 +17,7 @@ const Footer = () => {
               <li><Link href="/companies" className="hover:text-gray-300">Companies</Link></li>
             </ul>
           </div>
+          {/*  */}
           <div>
             <h3 className="text-lg font-semibold mb-4">For Employers</h3>
             <ul className="space-y-2">
@@ -25,6 +26,7 @@ const Footer = () => {
               <li><Link href="/resources" className="hover:text-gray-300">Employer Resources</Link></li>
             </ul>
           </div>
+          {/*  */}
           <div>
             <h3 className="text-lg font-semibold mb-4">About Us</h3>
             <ul className="space-y-2">
@@ -33,10 +35,11 @@ const Footer = () => {
               <li><Link href="/terms" className="hover:text-gray-300">Terms of Service</Link></li>
             </ul>
           </div>
-          <div>
+          {/*  */}
+          <div className=' flex items-center'>
            <Button>
-           <Link href='https://github.com/omkute7/Job-and-internship-platform' target='blank' >
-            <p>Github</p>
+           <Link className=' flex items-center ' href='https://github.com/omkute7/Job-and-internship-platform' target='blank' >
+            <p className=' mx-2'>Github</p>
             <FaGithub/>
            </Link>
            </Button>
